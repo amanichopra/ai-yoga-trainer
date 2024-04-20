@@ -1,5 +1,6 @@
 # AI Yoga Trainer
 
+Yoga, originating from ancient Indian philosophy, encompasses a holistic approach to physical and mental well-being, integrating postures, breathing techniques, and meditation. Central to the practice of yoga is the precise execution of various yoga poses or asanas, each designed to target specific muscle groups, enhance flexibility, and promote inner harmony. Traditionally, mastering these poses has relied heavily on the guidance of experienced instructors and years of dedicated practice. By leveraging state-of-the-art deep learning architectures, we aim to develop a robust system capable of accurately identifying and categorizing various yoga poses from input images or video streams. Such a system holds immense potential to revolutionize the way yoga is learned, taught, and practiced, democratizing access to expert guidance and personalized feedback regardless of geographical location or instructor availability.
 
 ## Data
 
@@ -36,4 +37,3 @@ The script allows user to experiment with different CNN architectures (ResNets a
 
 #### Our results
 The best model configuration is the pretrained MobileNetV3 with 0.7 dropout rate. Predicting the testing data, it achieves 0.74 top-1 accuracy, 0.94 top-5 accuracy, 0.74 F1 score, 0.76 precision, 0.76 recall and 0.99 ROC AUC.
-Yoga, originating from ancient Indian philosophy, encompasses a holistic approach to physical and mental well-being, integrating postures, breathing techniques, and meditation. Central to the practice of yoga is the precise execution of various yoga poses or asanas, each designed to target specific muscle groups, enhance flexibility, and promote inner harmony. Traditionally, mastering these poses has relied heavily on the guidance of experienced instructors and years of dedicated practice. By leveraging state-of-the-art deep learning architectures, we aim to develop a robust system capable of accurately identifying and categorizing various yoga poses from input images or video streams. Such a system holds immense potential to revolutionize the way yoga is learned, taught, and practiced, democratizing access to expert guidance and personalized feedback regardless of geographical location or instructor availability.
