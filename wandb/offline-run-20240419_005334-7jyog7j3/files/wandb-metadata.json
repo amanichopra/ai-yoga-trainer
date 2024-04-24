@@ -1,0 +1,45 @@
+{
+    "os": "macOS-10.16-x86_64-i386-64bit",
+    "python": "3.10.14",
+    "heartbeatAt": "2024-04-19T04:53:35.034792",
+    "startedAt": "2024-04-19T04:53:34.873999",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/Users/charles/Workspace/Columbia/AML_COMSW4995/project/ai-yoga-trainer/debug_transformers.py",
+    "codePathLocal": "debug_transformers.py",
+    "codePath": "debug_transformers.py",
+    "git": {
+        "remote": "git@github.com:amanichopra/ai-yoga-trainer.git",
+        "commit": "51877e95ac268ab0902424b845bfe1ec774cb6be"
+    },
+    "email": "charles_m.18@hotmail.com",
+    "root": "/Users/charles/Workspace/Columbia/AML_COMSW4995/project/ai-yoga-trainer",
+    "host": "Charless-MBP",
+    "username": "charles",
+    "executable": "/usr/local/anaconda3/envs/debug_yoga_trainer/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 2300,
+        "min": 2300,
+        "max": 2300
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2300,
+            "min": 2300,
+            "max": 2300
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 931.546989440918,
+            "used": 9.536285400390625
+        }
+    },
+    "memory": {
+        "total": 32.0
+    }
+}
