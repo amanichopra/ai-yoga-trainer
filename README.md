@@ -4,15 +4,18 @@ Yoga, originating from ancient Indian philosophy, encompasses a holistic approac
 
 ## Data
 
+We leverage the Yoga-82 dataset, developed in a research [paper](https://arxiv.org/abs/2004.10362) titled “Yoga-82: A New Dataset for Fine-grained Classification of Human Poses”. The dataset boasts a hierarchical design to enable part-based learning where “the network [can] learn features based on the hierarchical classes”. There are a total of 82 poses in the dataset with an average of 347 images per class. The images are varied in their backgrounds and angles; some backgrounds are plain white while others are at a beach, indoors, or sketched. The class names are defined in English, though the Sanskrit counterparts are available as metadata. The hierarchy can be viewed in the appendix. 
+
+The dataset can be downloaded from Kaggle using `kaggle datasets download -d akashrayhan/yoga-82`. Our EDA is conducted in `eda.ipynb` and the data is preprocessed and loaded into Google Cloud Storage for training in `load_data.ipynb`.
 
 
 ## Models
 
-We plan to train 4 different models:
+We train 4 different models:
 
-1. Vanilla CNN
-2. Deep Convolutional Neural Networks
-    Researchers have refined the architectures of convolutional neural networks to support deeper networks with more efficient training. In this project, we have experimented with several state-of-the-art deep convolutional neural networks, including ResNets and MobileNets. The pretrained models come from huggingface's community. `train_cnn.py` includes the training script for these models and users can experiment with different architectures and hyperparameters. The script requires several libraries that can be found in the environment config `cnn_env.yaml`.
+1. ResNet
+    
+    Researchers have refined the architectures of convolutional neural networks to support deeper networks with more efficient training. In this project, we have experimented with several state-of-the-art deep convolutional neural networks, including ResNets of all sizes (18, 34, 50, 101, and 152) and MobileNets (V2 and V3). The pretrained models come from HuggingFace's community. `train_cnn.py` includes the training script (notebook version in `train_cnn.ipynb`) for these models and users can experiment with different architectures and hyperparameters. 
     
 3. MoveNet + Classifier
     
@@ -20,22 +23,5 @@ We plan to train 4 different models:
 
 4. ViT
 
+    The Vision Transformer (ViT) is a novel machine learning model designed for image classification tasks, offering a departure from traditional Convolutional Neural Networks (CNNs). It achieves this through the use of self-attention mechanisms to capture global dependencies between image patches. ViT first divides the input image into fixed-size patches, which are then flattened into vectors and linearly projected into a lower-dimensional space. Special learnable embeddings (tokens) are added to these patch embeddings to encode positional information. The model then employs a Transformer encoder, consisting of multiple layers of self-attention and feedforward neural networks, to process the input sequence. Self-attention allows each token to attend to all other tokens, enabling the model to consider global context when making predictions. Finally, the output token representations are used for classification, typically by feeding the representation of the [CLS] token into a linear layer to predict the image class. ViT has demonstrated impressive performance on various image classification benchmarks, showcasing the potential of self-attention mechanisms in computer vision tasks. The training and evaluation script is called `train_vit.ipynb`. All experiments are recorded in Weights & Biases [here](https://wandb.ai/aml-experiments/vit-yoga-classifier).
 
-### Convolutional Neural Network (CNN)
-
-
-`train_cnn.py` includes the training script for CNN models. The script requires several libraries that can be found in the environment config `cnn_env.yaml`. 
-
-#### Dataset
-
-To use this script, users need to download and extract the dataset to a directory. It is recommended to use Kaggle's CLI to do so via 
-`kaggle datasets download -d akashrayhan/yoga-82`.
-
-After extraction, users can specify the path to the dataset with the `--datadir` argument.
-
-#### Experiments
-The script allows user to experiment with different CNN architectures (ResNets and MobileNets) and hyperparameters (epochs, learning rate, weight decay, dropout rate, etc.) we have experimented with. 
-
-
-#### Our results
-The best model configuration is the pretrained MobileNetV3 with 0.7 dropout rate. Predicting the testing data, it achieves 0.74 top-1 accuracy, 0.94 top-5 accuracy, 0.74 F1 score, 0.76 precision, 0.76 recall and 0.99 ROC AUC.
